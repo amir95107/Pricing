@@ -1,0 +1,14 @@
+﻿var tables = document.getElementsByTagName('table');
+const data = [];
+for (var i = 0; i < tables.length; i++) {
+    if (tables[i].classList.contains('hikashop_products_table')) {
+        const product = {
+            AsroonId: ,
+            AsrronName: ,
+            Title: ,
+            Location: ,
+            PublishDate: ,
+            Price:
+        }
+    }
+}

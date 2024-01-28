@@ -1,0 +1,781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="medab_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Addresses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="AddressID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="IsDefault" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="PostalCode" />
+    </Key>
+    <Property Name="AddressID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Long" Type="varchar" MaxLength="100" />
+    <Property Name="Lat" Type="varchar" MaxLength="100" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Blogs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="BlogID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="ShortDescription" />
+      <PropertyRef Name="Text" />
+      <PropertyRef Name="ImageName" />
+      <PropertyRef Name="Author" />
+      <PropertyRef Name="Tags" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="Visit" />
+    </Key>
+    <Property Name="BlogID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ShortDescription" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Author" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Tags" Type="nvarchar" MaxLength="350" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="Visit" Type="int" Nullable="false" />
+    <Property Name="SefUrl" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Brands' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Brands">
+    <Key>
+      <PropertyRef Name="BrandID" />
+      <PropertyRef Name="BrandTitle" />
+      <PropertyRef Name="BrandImageName" />
+    </Key>
+    <Property Name="BrandID" Type="int" Nullable="false" />
+    <Property Name="BrandTitle" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="BrandImageName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.ContactForm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ContactForm">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="Subject" />
+      <PropertyRef Name="Text" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Mobile" />
+      <PropertyRef Name="IsFaq" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Answer" Type="nvarchar(max)" />
+    <Property Name="IsFaq" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.DeliveryWays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DeliveryWays">
+    <Key>
+      <PropertyRef Name="DeliveryID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PayByCustomer" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="DeliveryID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Time" Type="nvarchar" MaxLength="350" />
+    <Property Name="Usage" Type="nvarchar" MaxLength="350" />
+    <Property Name="PayByCustomer" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Discounts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Discounts">
+    <Key>
+      <PropertyRef Name="DiscountID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="DiscountCode" />
+      <PropertyRef Name="ExpireDate" />
+      <PropertyRef Name="DiscountPercent" />
+      <PropertyRef Name="IsUsed" />
+      <PropertyRef Name="MaxDiscountValue" />
+    </Key>
+    <Property Name="DiscountID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="DiscountCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExpireDate" Type="datetime" Nullable="false" />
+    <Property Name="DiscountPercent" Type="int" Nullable="false" />
+    <Property Name="IsUsed" Type="bit" Nullable="false" />
+    <Property Name="MaxDiscountValue" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Features' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Features">
+    <Key>
+      <PropertyRef Name="FeatureID" />
+      <PropertyRef Name="FeatureTitle" />
+    </Key>
+    <Property Name="FeatureID" Type="int" Nullable="false" />
+    <Property Name="FeatureTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Lead_Clients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Lead_Clients">
+    <Key>
+      <PropertyRef Name="LeadID" />
+      <PropertyRef Name="Mobile" />
+      <PropertyRef Name="CreateDate" />
+    </Key>
+    <Property Name="LeadID" Type="int" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.LikeProduct' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LikeProduct">
+    <Key>
+      <PropertyRef Name="LikeID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="LikeID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.OrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="DetailID" />
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Count" />
+      <PropertyRef Name="TotalDiscount" />
+      <PropertyRef Name="Condition" />
+    </Key>
+    <Property Name="DetailID" Type="int" Nullable="false" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="TotalDiscount" Type="int" Nullable="false" />
+    <Property Name="Condition" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="TraceCode" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="Payable" />
+      <PropertyRef Name="IsFinaly" />
+      <PropertyRef Name="PaymentWay" />
+      <PropertyRef Name="UseDiscountCode" />
+      <PropertyRef Name="IsSent" />
+      <PropertyRef Name="DeliveryID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="TraceCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Payable" Type="int" Nullable="false" />
+    <Property Name="IsFinaly" Type="bit" Nullable="false" />
+    <Property Name="PaymentWay" Type="int" Nullable="false" />
+    <Property Name="UseDiscountCode" Type="bit" Nullable="false" />
+    <Property Name="IsSent" Type="bit" Nullable="false" />
+    <Property Name="DeliveryID" Type="int" Nullable="false" />
+    <Property Name="DeliveryPrice" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Product_Comments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Product_Comments">
+    <Key>
+      <PropertyRef Name="CommentID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Comment" />
+      <PropertyRef Name="CreateDate" />
+    </Key>
+    <Property Name="CommentID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="800" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ParentID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Product_Features' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Product_Features">
+    <Key>
+      <PropertyRef Name="PF_ID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="FeatureID" />
+    </Key>
+    <Property Name="PF_ID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="FeatureID" Type="int" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="250" />
+    <Property Name="ImageName" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Product_Galleries' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Product_Galleries">
+    <Key>
+      <PropertyRef Name="GalleryID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="ImageName" />
+      <PropertyRef Name="Title" />
+    </Key>
+    <Property Name="GalleryID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Product_Groups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Product_Groups">
+    <Key>
+      <PropertyRef Name="GroupID" />
+      <PropertyRef Name="GroupTitle" />
+    </Key>
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="GroupTitle" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="ParentID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Product_Selected_Groups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Product_Selected_Groups">
+    <Key>
+      <PropertyRef Name="PG_ID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="PG_ID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Product_Tags' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Product_Tags">
+    <Key>
+      <PropertyRef Name="TagID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="Tag" />
+    </Key>
+    <Property Name="TagID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Tag" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.ProductBrand' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ProductBrand">
+    <Key>
+      <PropertyRef Name="PBID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="BrandID" />
+    </Key>
+    <Property Name="PBID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="BrandID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Products' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="ShortDescription" />
+      <PropertyRef Name="Text" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="PriceAfterDiscount" />
+      <PropertyRef Name="ImageName" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LikeCount" />
+      <PropertyRef Name="Stock" />
+      <PropertyRef Name="IsAcceptedByAdmin" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="SefUrl" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="350" Nullable="false" />
+    <Property Name="ShortDescription" Type="nchar" MaxLength="500" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="PriceAfterDiscount" Type="int" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LikeCount" Type="int" Nullable="false" />
+    <Property Name="Stock" Type="int" Nullable="false" />
+    <Property Name="Point" Type="float" />
+    <Property Name="SellerID" Type="int" />
+    <Property Name="IsAcceptedByAdmin" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="SefUrl" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" />
+    <Property Name="Visit" Type="int" />
+    <Property Name="Garanty" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="RoleTitle" />
+      <PropertyRef Name="RoleName" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="RoleTitle" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Sellers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Sellers">
+    <Key>
+      <PropertyRef Name="SellerID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="SellerFullName" />
+      <PropertyRef Name="StoreName" />
+      <PropertyRef Name="StoreAddress" />
+      <PropertyRef Name="Mobile" />
+      <PropertyRef Name="Telephone" />
+      <PropertyRef Name="StartDate" />
+      <PropertyRef Name="IsAcceptedByAdmin" />
+    </Key>
+    <Property Name="SellerID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="SellerFullName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="StoreName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="StoreAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="IsAcceptedByAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.SiteVisit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SiteVisit">
+    <Key>
+      <PropertyRef Name="VisitID" />
+      <PropertyRef Name="IP" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="VisitID" Type="int" Nullable="false" />
+    <Property Name="IP" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Slider' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SlideID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Url" />
+      <PropertyRef Name="ImageName" />
+      <PropertyRef Name="StartDate" />
+      <PropertyRef Name="EndDate" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="SlideID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="350" Nullable="false" />
+    <Property Name="Url" Type="nchar" MaxLength="450" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.SpecialProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SpecialProducts">
+    <Key>
+      <PropertyRef Name="SPID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="ExpireDate" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="SPID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpireDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.UserInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="UIID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Mobile" />
+      <PropertyRef Name="Telephone" />
+    </Key>
+    <Property Name="UIID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Telephone" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="ActiveCode" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="RegisterDate" />
+      <PropertyRef Name="IsUserInfoCompleted" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ActiveCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+    <Property Name="IsUserInfoCompleted" Type="bit" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.medab_amir.LoggedCart' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LoggedCart">
+    <Key>
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="Url" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Url" Type="nvarchar" MaxLength="350" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'medab_DB.medab_amir.Page' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="PageID" />
+      <PropertyRef Name="PageTitle" />
+      <PropertyRef Name="HeadTitle" />
+      <PropertyRef Name="MetaDescription" />
+      <PropertyRef Name="Url" />
+    </Key>
+    <Property Name="PageID" Type="int" Nullable="false" />
+    <Property Name="PageTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PageContent" Type="nvarchar(max)" />
+    <Property Name="HeadTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="medab_DBModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="Self.Addresses" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Addresses].[AddressID] AS [AddressID], 
+    [Addresses].[UserID] AS [UserID], 
+    [Addresses].[Address] AS [Address], 
+    [Addresses].[Long] AS [Long], 
+    [Addresses].[Lat] AS [Lat], 
+    [Addresses].[IsDefault] AS [IsDefault], 
+    [Addresses].[State] AS [State], 
+    [Addresses].[City] AS [City], 
+    [Addresses].[PostalCode] AS [PostalCode]
+    FROM [dbo].[Addresses] AS [Addresses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Blogs" EntityType="Self.Blogs" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Blogs].[BlogID] AS [BlogID], 
+    [Blogs].[Title] AS [Title], 
+    [Blogs].[ShortDescription] AS [ShortDescription], 
+    [Blogs].[Text] AS [Text], 
+    [Blogs].[ImageName] AS [ImageName], 
+    [Blogs].[Author] AS [Author], 
+    [Blogs].[Tags] AS [Tags], 
+    [Blogs].[CreateDate] AS [CreateDate], 
+    [Blogs].[Visit] AS [Visit], 
+    [Blogs].[SefUrl] AS [SefUrl]
+    FROM [dbo].[Blogs] AS [Blogs]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Brands" EntityType="Self.Brands" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Brands].[BrandID] AS [BrandID], 
+    [Brands].[BrandTitle] AS [BrandTitle], 
+    [Brands].[BrandImageName] AS [BrandImageName]
+    FROM [dbo].[Brands] AS [Brands]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ContactForm" EntityType="Self.ContactForm" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ContactForm].[Id] AS [Id], 
+    [ContactForm].[UserID] AS [UserID], 
+    [ContactForm].[Date] AS [Date], 
+    [ContactForm].[Subject] AS [Subject], 
+    [ContactForm].[Text] AS [Text], 
+    [ContactForm].[Name] AS [Name], 
+    [ContactForm].[Mobile] AS [Mobile], 
+    [ContactForm].[Email] AS [Email], 
+    [ContactForm].[Answer] AS [Answer], 
+    [ContactForm].[IsFaq] AS [IsFaq]
+    FROM [dbo].[ContactForm] AS [ContactForm]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DeliveryWays" EntityType="Self.DeliveryWays" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DeliveryWays].[DeliveryID] AS [DeliveryID], 
+    [DeliveryWays].[Title] AS [Title], 
+    [DeliveryWays].[Price] AS [Price], 
+    [DeliveryWays].[Description] AS [Description], 
+    [DeliveryWays].[Time] AS [Time], 
+    [DeliveryWays].[Usage] AS [Usage], 
+    [DeliveryWays].[PayByCustomer] AS [PayByCustomer], 
+    [DeliveryWays].[IsActive] AS [IsActive]
+    FROM [dbo].[DeliveryWays] AS [DeliveryWays]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Discounts" EntityType="Self.Discounts" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Discounts].[DiscountID] AS [DiscountID], 
+    [Discounts].[UserID] AS [UserID], 
+    [Discounts].[DiscountCode] AS [DiscountCode], 
+    [Discounts].[ExpireDate] AS [ExpireDate], 
+    [Discounts].[DiscountPercent] AS [DiscountPercent], 
+    [Discounts].[IsUsed] AS [IsUsed], 
+    [Discounts].[MaxDiscountValue] AS [MaxDiscountValue]
+    FROM [dbo].[Discounts] AS [Discounts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Features" EntityType="Self.Features" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Features].[FeatureID] AS [FeatureID], 
+    [Features].[FeatureTitle] AS [FeatureTitle]
+    FROM [dbo].[Features] AS [Features]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Lead_Clients" EntityType="Self.Lead_Clients" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Lead_Clients].[LeadID] AS [LeadID], 
+    [Lead_Clients].[Mobile] AS [Mobile], 
+    [Lead_Clients].[CreateDate] AS [CreateDate]
+    FROM [dbo].[Lead_Clients] AS [Lead_Clients]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="LikeProduct" EntityType="Self.LikeProduct" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LikeProduct].[LikeID] AS [LikeID], 
+    [LikeProduct].[ProductID] AS [ProductID], 
+    [LikeProduct].[UserID] AS [UserID], 
+    [LikeProduct].[Date] AS [Date]
+    FROM [dbo].[LikeProduct] AS [LikeProduct]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrderDetails].[DetailID] AS [DetailID], 
+    [OrderDetails].[OrderID] AS [OrderID], 
+    [OrderDetails].[ProductID] AS [ProductID], 
+    [OrderDetails].[Price] AS [Price], 
+    [OrderDetails].[Count] AS [Count], 
+    [OrderDetails].[TotalDiscount] AS [TotalDiscount], 
+    [OrderDetails].[Condition] AS [Condition]
+    FROM [dbo].[OrderDetails] AS [OrderDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Orders" EntityType="Self.Orders" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Orders].[OrderID] AS [OrderID], 
+    [Orders].[TraceCode] AS [TraceCode], 
+    [Orders].[UserID] AS [UserID], 
+    [Orders].[Date] AS [Date], 
+    [Orders].[Payable] AS [Payable], 
+    [Orders].[IsFinaly] AS [IsFinaly], 
+    [Orders].[PaymentWay] AS [PaymentWay], 
+    [Orders].[UseDiscountCode] AS [UseDiscountCode], 
+    [Orders].[IsSent] AS [IsSent], 
+    [Orders].[DeliveryID] AS [DeliveryID], 
+    [Orders].[DeliveryPrice] AS [DeliveryPrice]
+    FROM [dbo].[Orders] AS [Orders]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Product_Comments" EntityType="Self.Product_Comments" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Product_Comments].[CommentID] AS [CommentID], 
+    [Product_Comments].[ProductID] AS [ProductID], 
+    [Product_Comments].[Name] AS [Name], 
+    [Product_Comments].[Email] AS [Email], 
+    [Product_Comments].[Comment] AS [Comment], 
+    [Product_Comments].[CreateDate] AS [CreateDate], 
+    [Product_Comments].[ParentID] AS [ParentID]
+    FROM [dbo].[Product_Comments] AS [Product_Comments]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Product_Features" EntityType="Self.Product_Features" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Product_Features].[PF_ID] AS [PF_ID], 
+    [Product_Features].[ProductID] AS [ProductID], 
+    [Product_Features].[FeatureID] AS [FeatureID], 
+    [Product_Features].[Value] AS [Value], 
+    [Product_Features].[ImageName] AS [ImageName]
+    FROM [dbo].[Product_Features] AS [Product_Features]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Product_Galleries" EntityType="Self.Product_Galleries" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Product_Galleries].[GalleryID] AS [GalleryID], 
+    [Product_Galleries].[ProductID] AS [ProductID], 
+    [Product_Galleries].[ImageName] AS [ImageName], 
+    [Product_Galleries].[Title] AS [Title]
+    FROM [dbo].[Product_Galleries] AS [Product_Galleries]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Product_Groups" EntityType="Self.Product_Groups" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Product_Groups].[GroupID] AS [GroupID], 
+    [Product_Groups].[GroupTitle] AS [GroupTitle], 
+    [Product_Groups].[ParentID] AS [ParentID]
+    FROM [dbo].[Product_Groups] AS [Product_Groups]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Product_Selected_Groups" EntityType="Self.Product_Selected_Groups" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Product_Selected_Groups].[PG_ID] AS [PG_ID], 
+    [Product_Selected_Groups].[ProductID] AS [ProductID], 
+    [Product_Selected_Groups].[GroupID] AS [GroupID]
+    FROM [dbo].[Product_Selected_Groups] AS [Product_Selected_Groups]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Product_Tags" EntityType="Self.Product_Tags" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Product_Tags].[TagID] AS [TagID], 
+    [Product_Tags].[ProductID] AS [ProductID], 
+    [Product_Tags].[Tag] AS [Tag]
+    FROM [dbo].[Product_Tags] AS [Product_Tags]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ProductBrand" EntityType="Self.ProductBrand" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ProductBrand].[PBID] AS [PBID], 
+    [ProductBrand].[ProductID] AS [ProductID], 
+    [ProductBrand].[BrandID] AS [BrandID]
+    FROM [dbo].[ProductBrand] AS [ProductBrand]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Products" EntityType="Self.Products" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Products].[ProductID] AS [ProductID], 
+    [Products].[Title] AS [Title], 
+    [Products].[ShortDescription] AS [ShortDescription], 
+    [Products].[Text] AS [Text], 
+    [Products].[Price] AS [Price], 
+    [Products].[PriceAfterDiscount] AS [PriceAfterDiscount], 
+    [Products].[ImageName] AS [ImageName], 
+    [Products].[CreateDate] AS [CreateDate], 
+    [Products].[LikeCount] AS [LikeCount], 
+    [Products].[Stock] AS [Stock], 
+    [Products].[Point] AS [Point], 
+    [Products].[SellerID] AS [SellerID], 
+    [Products].[IsAcceptedByAdmin] AS [IsAcceptedByAdmin], 
+    [Products].[IsActive] AS [IsActive], 
+    [Products].[SefUrl] AS [SefUrl], 
+    [Products].[LastUpdated] AS [LastUpdated], 
+    [Products].[Visit] AS [Visit], 
+    [Products].[Garanty] AS [Garanty]
+    FROM [dbo].[Products] AS [Products]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Roles" EntityType="Self.Roles" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Roles].[RoleID] AS [RoleID], 
+    [Roles].[RoleTitle] AS [RoleTitle], 
+    [Roles].[RoleName] AS [RoleName]
+    FROM [dbo].[Roles] AS [Roles]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Sellers" EntityType="Self.Sellers" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Sellers].[SellerID] AS [SellerID], 
+    [Sellers].[UserID] AS [UserID], 
+    [Sellers].[SellerFullName] AS [SellerFullName], 
+    [Sellers].[StoreName] AS [StoreName], 
+    [Sellers].[StoreAddress] AS [StoreAddress], 
+    [Sellers].[Mobile] AS [Mobile], 
+    [Sellers].[Telephone] AS [Telephone], 
+    [Sellers].[StartDate] AS [StartDate], 
+    [Sellers].[IsAcceptedByAdmin] AS [IsAcceptedByAdmin]
+    FROM [dbo].[Sellers] AS [Sellers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SiteVisit" EntityType="Self.SiteVisit" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SiteVisit].[VisitID] AS [VisitID], 
+    [SiteVisit].[IP] AS [IP], 
+    [SiteVisit].[Date] AS [Date]
+    FROM [dbo].[SiteVisit] AS [SiteVisit]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Slider" EntityType="Self.Slider" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Slider].[SlideID] AS [SlideID], 
+    [Slider].[Title] AS [Title], 
+    [Slider].[Url] AS [Url], 
+    [Slider].[ImageName] AS [ImageName], 
+    [Slider].[StartDate] AS [StartDate], 
+    [Slider].[EndDate] AS [EndDate], 
+    [Slider].[IsActive] AS [IsActive]
+    FROM [dbo].[Slider] AS [Slider]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SpecialProducts" EntityType="Self.SpecialProducts" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SpecialProducts].[SPID] AS [SPID], 
+    [SpecialProducts].[ProductID] AS [ProductID], 
+    [SpecialProducts].[CreateDate] AS [CreateDate], 
+    [SpecialProducts].[ExpireDate] AS [ExpireDate], 
+    [SpecialProducts].[IsActive] AS [IsActive]
+    FROM [dbo].[SpecialProducts] AS [SpecialProducts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UserInfo].[UIID] AS [UIID], 
+    [UserInfo].[UserID] AS [UserID], 
+    [UserInfo].[FullName] AS [FullName], 
+    [UserInfo].[Mobile] AS [Mobile], 
+    [UserInfo].[Telephone] AS [Telephone]
+    FROM [dbo].[UserInfo] AS [UserInfo]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Users].[UserID] AS [UserID], 
+    [Users].[RoleID] AS [RoleID], 
+    [Users].[UserName] AS [UserName], 
+    [Users].[Email] AS [Email], 
+    [Users].[Password] AS [Password], 
+    [Users].[ActiveCode] AS [ActiveCode], 
+    [Users].[IsActive] AS [IsActive], 
+    [Users].[RegisterDate] AS [RegisterDate], 
+    [Users].[IsUserInfoCompleted] AS [IsUserInfoCompleted], 
+    [Users].[Mobile] AS [Mobile]
+    FROM [dbo].[Users] AS [Users]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="LoggedCart" EntityType="Self.LoggedCart" store:Type="Tables" store:Schema="medab_amir">
+      <DefiningQuery>SELECT 
+    [LoggedCart].[CID] AS [CID], 
+    [LoggedCart].[ProductID] AS [ProductID], 
+    [LoggedCart].[UserName] AS [UserName], 
+    [LoggedCart].[Url] AS [Url], 
+    [LoggedCart].[Date] AS [Date]
+    FROM [medab_amir].[LoggedCart] AS [LoggedCart]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Page" EntityType="Self.Page" store:Type="Tables" store:Schema="medab_amir">
+      <DefiningQuery>SELECT 
+    [Page].[PageID] AS [PageID], 
+    [Page].[PageTitle] AS [PageTitle], 
+    [Page].[PageContent] AS [PageContent], 
+    [Page].[HeadTitle] AS [HeadTitle], 
+    [Page].[MetaDescription] AS [MetaDescription], 
+    [Page].[Url] AS [Url]
+    FROM [medab_amir].[Page] AS [Page]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
